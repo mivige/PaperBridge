@@ -2,17 +2,20 @@ body {
     font-family: sans-serif;
     margin: 2em auto;
     max-width: 600px;
-    background: #f8f8f8;
-    color: #222;
+    background: #FFFDF6; /* pastel warm white */
+    color: #5C5C3D;      /* muted dark olive */
 }
 h1 { 
     text-align: center; 
+    color: #B89C3A;      /* muted gold for title */
 }
 section { 
     margin-bottom: 2em; 
-    background: #fff; 
+    background: #FFF9E3; /* very light pastel yellow */
     padding: 1em; 
     border-radius: 8px; 
+    border: 1px solid #E6E2D3;
+    box-shadow: 0 2px 8px #FFE9A720;
 }
 ul { 
     list-style: none; 
@@ -20,7 +23,79 @@ ul {
 }
 li { 
     margin-bottom: 0.5em; 
+    width: 100%;
 }
-button { 
-    margin-left: 0.5em; 
+form {
+    width: 100%;
+    margin-bottom: 0.5em;
+}
+form input,
+form button,
+form textarea {
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 0.5em;
+    background: #F5F5F5;
+    border: 1px solid #E6E2D3;
+    color: #5C5C3D;
+    border-radius: 4px;
+}
+form button {
+    background: #FFE9A7;
+    color: #5C5C3D;
+    border: 1px solid #E6E2D3;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+form button:hover {
+    background: #FFF6C3;
+}
+ul li form {
+    width: auto;
+    display: inline;
+}
+ul li {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    width: 100%;
+}
+
+ul li > * {
+    flex: 1 1 0;
+}
+
+ul li form,
+ul li a {
+    width: 100%;
+    margin: 0;
+    display: block;
+}
+a {
+    color: #B89C3A;
+    text-decoration: underline;
+    transition: color 0.2s;
+}
+a:hover {
+    color: #A68B2D;
+}
+#dropZone {
+    background: #FFF9E3; /* match section background */
+    border: 2px dashed #E6E2D3;
+    color: #B89C3A;
+}
+input[type="file"] {
+    background: #FFE9A7;
+    color: #5C5C3D;
+    border: 1px solid #E6E2D3;
+    border-radius: 4px;
+    padding: 0.3em;
+}
+
+input[type="text"],
+textarea {
+    background: #FFFDF6;
+    color: #5C5C3D;
+    border: 1px solid #E6E2D3;
+    border-radius: 4px;
 }

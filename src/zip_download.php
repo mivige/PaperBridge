@@ -5,7 +5,7 @@ $zipName = 'paperbridge_files.zip';
 $zip = new ZipArchive();
 $tmpZip = tempnam(sys_get_temp_dir(), 'zip');
 if ($zip->open($tmpZip, ZipArchive::CREATE) !== TRUE) {
-    die('Impossibile creare lo ZIP');
+    die('ZIP creation failed.');
 }
 foreach (array_diff(scandir($uploadDir), ['.', '..']) as $file) {
     $filePath = $uploadDir . $file;

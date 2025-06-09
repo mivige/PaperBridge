@@ -30,9 +30,12 @@ $noteFiles = array_diff(scandir($notesDir), ['.', '..']);
         <h2>Uploaded files</h2>
         <ul>
             <?php foreach ($uploadedFiles as $file): ?>
-                <li>
+                <li style="display: flex; align-items: center; gap: 0.5em;">
                     <a href="uploads/<?= urlencode($file) ?>" target="_blank"><?= htmlspecialchars($file) ?></a>
-                    <a href="src/download.php?file=<?= urlencode($file) ?>" style="margin-left:8px;">Download</a>
+                    <form action="src/download.php" method="get" style="display:inline;">
+                        <input type="hidden" name="file" value="<?= htmlspecialchars($file) ?>">
+                        <button type="submit">Download</button>
+                    </form>
                     <form action="src/delete.php" method="post" style="display:inline;">
                         <input type="hidden" name="file" value="<?= htmlspecialchars($file) ?>">
                         <input type="hidden" name="type" value="upload">
@@ -41,8 +44,8 @@ $noteFiles = array_diff(scandir($notesDir), ['.', '..']);
                 </li>
             <?php endforeach; ?>
         </ul>
-        <form action="src/zip_download.php" method="post" style="margin-bottom:1em;">
-            <button type="submit">Download all as ZIP</button>
+        <form action="src/zip_download.php" method="post" style="margin-bottom:1em; width:100%;">
+            <button type="submit" style="width:100%;">Download all as ZIP</button>
         </form>
     </section>
     <section>

@@ -5,8 +5,22 @@ body {
     background: #f8f8f8;
     color: #222;
 }
-h1 { text-align: center; }
-section { margin-bottom: 2em; background: #fff; padding: 1em; border-radius: 8px; }
-ul { list-style: none; padding: 0; }
-li { margin-bottom: 0.5em; }
-button { margin-left: 0.5em; }
+h1 { 
+    text-align: center; 
+}
+section { 
+    margin-bottom: 2em; 
+    background: #fff; 
+    padding: 1em; 
+    border-radius: 8px; 
+}
+ul { 
+    list-style: none; 
+    padding: 0; 
+}
+li { 
+    margin-bottom: 0.5em; 
+}
+button { 
+    margin-left: 0.5em; 
+}

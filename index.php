@@ -18,17 +18,21 @@ $noteFiles = array_diff(scandir($notesDir), ['.', '..']);
     <h1>PaperBridge</h1>
     <section>
         <h2>Upload file</h2>
-        <form action="src/upload.php" method="post" enctype="multipart/form-data">
-            <input type="file" name="file" required>
+        <form id="uploadForm" action="src/upload.php" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" id="fileInput" required>
             <button type="submit">Upload</button>
         </form>
+        <div id="dropZone" style="border:2px dashed #aaa; padding:1em; text-align:center; margin-top:1em;">
+            Drag and drop here files to upload
+        </div>
     </section>
     <section>
         <h2>Uploaded files</h2>
         <ul>
             <?php foreach ($uploadedFiles as $file): ?>
                 <li>
-                    <a href="src/download.php?file=<?= urlencode($file) ?>"><?= htmlspecialchars($file) ?></a>
+                    <a href="uploads/<?= urlencode($file) ?>" target="_blank"><?= htmlspecialchars($file) ?></a>
+                    <a href="src/download.php?file=<?= urlencode($file) ?>" style="margin-left:8px;">Download</a>
                     <form action="src/delete.php" method="post" style="display:inline;">
                         <input type="hidden" name="file" value="<?= htmlspecialchars($file) ?>">
                         <input type="hidden" name="type" value="upload">
@@ -37,6 +41,9 @@ $noteFiles = array_diff(scandir($notesDir), ['.', '..']);
                 </li>
             <?php endforeach; ?>
         </ul>
+        <form action="src/zip_download.php" method="post" style="margin-bottom:1em;">
+            <button type="submit">Download all as ZIP</button>
+        </form>
     </section>
     <section>
         <h2>Write a note</h2>
@@ -61,5 +68,6 @@ $noteFiles = array_diff(scandir($notesDir), ['.', '..']);
             <?php endforeach; ?>
         </ul>
     </section>
+    <script src="assets/js/script.js"></script>
 </body>
 </html>
